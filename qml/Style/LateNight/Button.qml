@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import skin.mixxx.org // for ColorScheme singleton
 
 Button {
     id: control
@@ -12,7 +13,7 @@ Button {
         text: control.text
         font: control.font
         opacity: enabled ? 1.0 : 0.3
-        color: checked ? "#000000" : "#908070"
+        color: checked ? "#000000" : ColorScheme.buttonText
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight

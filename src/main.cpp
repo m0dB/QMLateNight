@@ -7,6 +7,7 @@
 #include <QSvgRenderer>
 #include <QFontDatabase>
 #include <QScreen>
+#include <QQmlComponent>
 
 // image provider that allows to search/replace colors in the svg file before rendering it
 class SvgModifierImageProvider : public QQuickImageProvider {
@@ -60,13 +61,17 @@ int main(int argc, char* argv[]) {
     QFontDatabase::addApplicationFont(":/example.mixxx.org/imports/Application/assets/fonts/OpenSans-Semibold.ttf");
 
     QQmlApplicationEngine engine;
+    QQmlComponent colorsComponent(&engine, QUrl("qrc:/example.mixxx.org/imports/Application/ColorSchemeDefault.qml"));
+    //QQmlComponent colorsComponent(&engine, QUrl("qrc:/example.mixxx.org/imports/Application/ColorSchemeBright.qml"));
+
+    qmlRegisterSingletonInstance("skin.mixxx.org", 1, 0, "ColorScheme", colorsComponent.create());
 
     engine.addImportPath(":/example.mixxx.org/imports");
     engine.addImageProvider(QString("svgmodifier"), new SvgModifierImageProvider);
     
     QQuickStyle::setStyle("LateNight");
 
-    engine.load(QUrl(u"qrc:/example.mixxx.org/imports/Application/main.qml"_qs));
+    engine.load(QUrl("qrc:/example.mixxx.org/imports/Application/main.qml"));
 
     return app.exec();
 }

@@ -8,6 +8,9 @@ qt_add_qml_module(qmlapp
     VERSION 1.0
     RESOURCE_PREFIX /example.mixxx.org/imports
     QML_FILES
+        ColorScheme.qml
+        ColorSchemeDefault.qml
+        ColorSchemeBright.qml
         CueButton.qml
         Deck.qml
         EqDial.qml
