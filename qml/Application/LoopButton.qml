@@ -1,9 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 
-Button {
+LoopBaseButton {
     id: control
-    implicitWidth: 24
-    implicitHeight: 24
-    color: pressed ? "#c06020" : "#202020"
+    icon.source: "image://svgmodifier/example.mixxx.org/imports/LateNight/assets/icons/loop.svg?#000000/" + (control.pressed ? "#000000" : "#908070")
 }

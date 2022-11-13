@@ -11,5 +11,5 @@ Button {
     }
     onClicked: {
     }
-    icon.source: "image://svgmodifier/example.mixxx.org/imports/LateNight/assets/icons/pfl.svg?#ff0000/" + (control.checked ? "#000000" : "#908070")
+    icon.source: "image://svgmodifier/example.mixxx.org/imports/LateNight/assets/icons/pfl.svg?#000000/" + (control.checked ? "#000000" : "#908070")
 }

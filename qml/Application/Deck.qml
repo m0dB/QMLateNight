@@ -80,13 +80,13 @@ Frame {
                 columnSpacing: 2
                 rowSpacing: 2
                 columns: 2
-                IntroOutroButton {
+                IntroStartButton {
                 }
-                IntroOutroButton {
+                IntroEndButton {
                 }
-                IntroOutroButton {
+                OutroStartButton {
                 }
-                IntroOutroButton {
+                OutroEndButton {
                 }
             }
             // spacer
@@ -109,11 +109,11 @@ Frame {
                 RowLayout {
                     Layout.maximumWidth: childrenRect.width
                     spacing: 2
-                    LoopToggleButton {
+                    ReloopButton {
                     }
-                    LoopButton {
+                    LoopInButton {
                     }
-                    LoopButton {
+                    LoopOutButton {
                     }
                 }
             }
@@ -134,9 +134,9 @@ Frame {
                 RowLayout {
                     spacing: 2
                     Layout.maximumWidth: childrenRect.width
-                    LoopButton {
+                    LoopjumpLeftButton {
                     }
-                    LoopButton {
+                    LoopjumpRightButton {
                     }
                 }
             }

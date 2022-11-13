@@ -5,10 +5,11 @@ project(QMLateNight VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 COMPONENTS Gui Quick QuickControls2 Svg REQUIRED)
+find_package(Qt6 6.2 COMPONENTS Gui Quick QuickControls2 Svg Sql REQUIRED)
 
 qt_add_executable(UiApp
     src/main.cpp
+    src/librarytablemodel.cpp
 )
 
 add_subdirectory(qml)
@@ -22,7 +23,7 @@ set_target_properties(UiApp PROPERTIES
 )
 
 target_link_libraries(UiApp
-    PRIVATE Qt6::Gui Qt6::Quick Qt6::QuickControls2 Qt6::Svg qmlappplugin latenightstyleplugin)
+    PRIVATE Qt6::Gui Qt6::Quick Qt6::QuickControls2 Qt6::Svg Qt6::Sql qmlappplugin latenightstyleplugin)
 
 install(TARGETS UiApp
     BUNDLE DESTINATION .

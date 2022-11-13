@@ -8,6 +8,9 @@
 #include <QFontDatabase>
 #include <QScreen>
 #include <QQmlComponent>
+#include <QQmlContext>
+#include "librarytablemodel.h"
+#include <QDebug>
 
 // image provider that allows to search/replace colors in the svg file before rendering it
 class SvgModifierImageProvider : public QQuickImageProvider {
@@ -66,6 +69,14 @@ int main(int argc, char* argv[]) {
 
     qmlRegisterSingletonInstance("skin.mixxx.org", 1, 0, "ColorScheme", colorsComponent.create());
 
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("/Users/maarten/mixxxdb.sqlite");
+    db.open();
+    LibraryTableModel libraryTableModel(Q_NULLPTR, db); 
+    qDebug() << libraryTableModel.rowCount();
+    qDebug() << libraryTableModel.columnCount();
+    qDebug() << libraryTableModel.roleNames();
+    engine.rootContext()->setContextProperty("libraryTableModel", &libraryTableModel);
     engine.addImportPath(":/example.mixxx.org/imports");
     engine.addImageProvider(QString("svgmodifier"), new SvgModifierImageProvider);
     

@@ -22,8 +22,17 @@ qt_add_qml_module(qmlapp
         GainLevel.qml
         HeadphoneMix.qml
         IntroOutroButton.qml
+        IntroStartButton.qml
+        IntroEndButton.qml
+        OutroStartButton.qml
+        OutroEndButton.qml
+        LoopBaseButton.qml
         LoopButton.qml
+        LoopInButton.qml
+        LoopOutButton.qml
         LoopToggleButton.qml
+        LoopjumpLeftButton.qml
+        LoopjumpRightButton.qml
         MainMix.qml
         Mixer.qml
         PflButton.qml
@@ -31,6 +40,7 @@ qt_add_qml_module(qmlapp
         PitchRateButton.qml
         SmallFxButton.qml
         ToggleButton.qml
+        ReloopButton.qml
         XFaderOrientationSwitch.qml
         main.qml
     RESOURCES 
